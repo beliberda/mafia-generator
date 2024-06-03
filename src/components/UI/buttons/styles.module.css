@@ -1,0 +1,15 @@
+.button_primary {
+  border-radius: 15px;
+  background: var(--button-default);
+  font-size: clamp(20px, 1rem, 40px);
+}
+
+.button_primary:hover {
+  background: var(--button-active);
+  box-shadow: var(--button-active-shadow);
+  color: var(--text-primary);
+}
+
+.button_icon:hover {
+  transform: rotateZ(40deg);
+}

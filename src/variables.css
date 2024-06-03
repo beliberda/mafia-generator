@@ -1,0 +1,7 @@
+:root {
+  --button-default: #f9f9f9;
+  --button-active: #dc1f1f;
+  --button-active-shadow: 0 0 17.5px #ff4a4a;
+  --modal-background: rgba(0, 0, 0, 0.7);
+  --text-primary: #ffffff;
+}

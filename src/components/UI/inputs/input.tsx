@@ -1,7 +1,13 @@
+import store from "@/components/store/store";
 import { ButtonIcon } from "@/components/UI/buttons/buttons";
 import minus from "@assets/icons/minus.svg";
+import { observer } from "mobx-react-lite";
+import { FunctionComponent, useState } from "react";
 import styles from "./input.module.css";
-interface InputProps {}
+interface InputProps {
+  role: string;
+  index: number;
+}
 
 const roles = [
   "Маньяк",
@@ -10,34 +16,35 @@ const roles = [
   "Коммисар",
   "Красотка",
   "Врач",
-  "Мафия",
 ];
 
-const Select: FunctionComponent<InputProps> = () => {
-  const selectValue = () => {
-    console.log("selectValue");
-  };
+const Select = observer(({role,index}:InputProps) => {
+  // const [value, setValue] = useState(role)
 
   return (
     <div className={styles.input_wrapper}>
-      <input
-        onChange={selectValue}
+      {/* <input
+        onChange={(e)=>{
+          setValue(e.target.value)
+        }}
         autoComplete="off"
         type="text"
         list="role-list"
-      />
-      <datalist id="role-list">
-        {roles.map((role) => {
+        value={value}
+      /> */}
+      <select onChange={(e)=> store.editRoleList(e.target.value,index)} defaultValue={role}>
+        {roles.map((elem) => {
           return (
-            <option key={role} value={role}>
-              {role}
+            <option key={elem} value={elem}>
+              {elem}
             </option>
           );
-        })}
-      </datalist>
-      <ButtonIcon image={minus} />
+        })} 
+      </select>
+      <ButtonIcon handleClick={()=>{
+        store.deleteRoleList(role)
+      }} image={minus} isAnimate={false} />
     </div>
   );
-};
-
-export { Select };
+});
+export {Select}

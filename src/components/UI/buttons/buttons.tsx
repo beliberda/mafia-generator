@@ -6,6 +6,7 @@ interface ButtonProps {
   text?: string | null;
   handleClick?: () => void | null;
   image?: ImgHTMLAttributes | null;
+  isAnimate: boolean | null;
 }
 
 function Button({ width, height, text, handleClick }: ButtonProps) {
@@ -22,9 +23,9 @@ function Button({ width, height, text, handleClick }: ButtonProps) {
     </button>
   );
 }
-function ButtonIcon({ image, handleClick }: ButtonProps) {
+function ButtonIcon({ image, handleClick, isAnimate=true }: ButtonProps) {
   return (
-    <button onClick={handleClick} className={styles.button_icon}>
+    <button onClick={handleClick} className={!isAnimate ? styles.button_icon : styles.button_icon +" "+ styles.anim_icon}>
       <img src={image} alt="" />
     </button>
   );

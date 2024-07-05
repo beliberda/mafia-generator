@@ -9,7 +9,6 @@
   box-shadow: var(--button-active-shadow);
   color: var(--text-primary);
 }
-
-.button_icon:hover {
+.anim_icon:hover {
   transform: rotateZ(40deg);
 }

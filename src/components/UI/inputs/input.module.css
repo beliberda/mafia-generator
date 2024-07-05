@@ -1,25 +1,26 @@
 .input_wrapper {
-    display: flex;
-    gap: 22px;
-
+  display: flex;
+  gap: 22px;
 }
 
-input {
-    border: none;
-    border-bottom: 3px solid var(--button-default);
-    color: var(--text-primary);
-    font-size: 24px;
-    background: none;
-    padding: 8px;
-    transition: all .3s;
-    outline: none;
+input,
+select {
+  border: none;
+  border-bottom: 3px solid var(--button-default);
+  color: var(--text-primary);
+  font-size: 24px;
+  background: none;
+  padding: 8px;
+  transition: all 0.3s;
+  outline: none;
 }
 
-input:focus {
-    border-bottom: 3px solid var(--button-active);
+select:focus {
+  border-bottom: 3px solid var(--button-active);
 }
 
 option {
-    height: 20px;
-    font-size: 24px;
+  height: 20px;
+  font-size: 24px;
+  color: black;
 }

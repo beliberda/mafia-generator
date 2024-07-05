@@ -1,5 +1,17 @@
+import { ButtonIcon } from "@/components/UI/buttons/buttons";
+import minus from "@assets/icons/minus.svg";
 import styles from "./input.module.css";
 interface InputProps {}
+
+const roles = [
+  "Маньяк",
+  "Мафия",
+  "Мирный",
+  "Коммисар",
+  "Красотка",
+  "Врач",
+  "Мафия",
+];
 
 const Select: FunctionComponent<InputProps> = () => {
   const selectValue = () => {
@@ -15,13 +27,15 @@ const Select: FunctionComponent<InputProps> = () => {
         list="role-list"
       />
       <datalist id="role-list">
-        <option value="Маньяк">Маньяк</option>
-        <option value="Мафия">Мафия</option>
-        <option value="Мирный">Мирный</option>
-        <option value="Коммисар">Коммисар</option>
-        <option value="Красотка">Красотка</option>
-        <option value="Врач">Врач</option>
+        {roles.map((role) => {
+          return (
+            <option key={role} value={role}>
+              {role}
+            </option>
+          );
+        })}
       </datalist>
+      <ButtonIcon image={minus} />
     </div>
   );
 };

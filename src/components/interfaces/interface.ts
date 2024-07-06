@@ -1,6 +1,6 @@
-type Role  = {
+interface Role {
   id: number;
   title: string;
   img?: string;
 }
-export {Role }
+export type {Role} 

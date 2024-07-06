@@ -5,7 +5,7 @@ interface ButtonProps {
   height?: number | null;
   text?: string | null;
   handleClick?: () => void | null;
-  image?: ImgHTMLAttributes | null;
+  image?: string;
   isAnimate?: boolean | null;
 }
 

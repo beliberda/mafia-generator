@@ -1,6 +1,5 @@
 import { FunctionComponent, useState } from "react";
 import styles from "./cardsList.module.css"
-import card from "@assets/cards/Мирный.png"
 import eyeOpen from "@assets/icons/openEye.svg"
 import eyeClose from "@assets/icons/closeEye.svg"
 import { ButtonIcon } from "@/components/UI/buttons/buttons";

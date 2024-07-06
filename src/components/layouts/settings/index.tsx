@@ -28,18 +28,15 @@ return (
 
           return (
             <React.Fragment key={i}>
-              <Select index={i} role={role}/>
-              {/* <Todo prop={role}/> */}
-              {/* <button style={{color:"white"}} onClick={()=>{
-                store.deleteRoleList(role)
-              }}>{role}</button> */}
+              <Select index={i} role={role.title}/>
             </React.Fragment>
           )
           
         })
       }
       <ButtonIcon handleClick={()=>{
-        store.addRoleList("Мирный")
+        store.addRoleList({title:"Мирный",
+      img:"/public/cards/Мирный.png"})
       }} image={plus} isAnimate={false} />
     </div>
   );

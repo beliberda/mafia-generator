@@ -10,9 +10,9 @@ import prev from "@assets/icons/prev.svg"
 interface FooterProps {}
 
 const Footer: FunctionComponent<FooterProps> = observer(() => {
-  const [activeCard, setActiveCard] = useState(1);
-  return <footer className={styles.footer}><ButtonIcon image={prev} isAnimate={false}/> <div className={styles.footer_info}>
-    {activeCard} / {store.roleList.length}</div>  <ButtonIcon image={next} isAnimate={false}/></footer>;
+
+  return <footer className={styles.footer}><ButtonIcon handleClick={()=>store.prevCard()} image={prev} isAnimate={false}/> <div className={styles.footer_info}>
+    {store.indexRole+1} / {store.roleList.length}</div>  <ButtonIcon handleClick={()=>store.nextCard()} image={next} isAnimate={false}/></footer>;
 });
 
 export default Footer;

@@ -1,21 +1,18 @@
+import { Role } from "@/components/interfaces/interface";
 import { makeAutoObservable, toJS } from "mobx";
-type Role  = {
-  title: string;
-  img: string;
-}
+
 class Store {
   isModalShown: boolean = false;
   roleList: Role[] = [
-    {title:"Мафия",
-img:"/cards/Мафия.png"}, {title:"Мирный",
-img:"/cards/Мирный.png"}, {title:"Коммисар",
-img:"/cards/Коммисар.png"}, {title:"Врач",
-img:"/cards/Врач.png"}, {title:"Красотка",
-img:"/cards/Красотка.png"}
+    {id:1,title:"Мафия",img:"/cards/Мафия.png"}, 
+    {id:2,title:"Мирный",img:"/cards/Мирный.png"}, 
+{id:3,title:"Коммисар",img:"/cards/Коммисар.png"},
+ {id:4,title:"Врач",img:"/cards/Врач.png"}, 
+ {id:5,title:"Красотка",img:"/cards/Красотка.png"}
 ];
   randomizeRoleList:Role[]=[]
   indexRole:number = 0;
-  currentCard: Role = {title:"",img:""};
+  currentCard: Role = {title:"",img:"", id:0};
   constructor() {
     makeAutoObservable(this, {}, {deep:true});
   }
@@ -33,13 +30,15 @@ img:"/cards/Красотка.png"}
   addRoleList(role: Role) {
     this.roleList.push(role);
   }
-  deleteRoleList(value: string) {
-    this.roleList = this.roleList.filter(role => role.title !== value);
+  deleteRoleList(id: number) {
+    this.roleList = this.roleList.filter(role => role.id !== id);
   }
-  editRoleList(value: string, index: number) {
-    let image = "/public/cards/"+value+".png";
+  editRoleList(value: string, id: number) {
 
-    this.roleList[index] = {title: value, img: image};
+    let image = "/public/cards/"+value+".png";
+    this.roleList = this.roleList.map(role=>role.id === id ? {...role,image:image, title:value}:role)
+    console.log("value",value,"id",id,toJS(this.roleList));
+    
     
   }
   randomizeRoles() {

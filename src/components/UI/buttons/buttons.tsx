@@ -6,7 +6,7 @@ interface ButtonProps {
   text?: string | null;
   handleClick?: () => void | null;
   image?: ImgHTMLAttributes | null;
-  isAnimate: boolean | null;
+  isAnimate?: boolean | null;
 }
 
 function Button({ width, height, text, handleClick }: ButtonProps) {

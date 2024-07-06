@@ -1,13 +1,10 @@
+import { Role } from "@/components/interfaces/interface";
 import store from "@/components/store/store";
 import { ButtonIcon } from "@/components/UI/buttons/buttons";
 import minus from "@assets/icons/minus.svg";
 import { observer } from "mobx-react-lite";
-import { FunctionComponent, useState } from "react";
 import styles from "./input.module.css";
-interface InputProps {
-  role: string;
-  index: number;
-}
+
 
 const roles = [
   "Маньяк",
@@ -18,21 +15,10 @@ const roles = [
   "Врач",
 ];
 
-const Select = observer(({role,index}:InputProps) => {
-  // const [value, setValue] = useState(role)
-
+const Select = observer(({title, id}:Role) => {
   return (
     <div className={styles.input_wrapper}>
-      {/* <input
-        onChange={(e)=>{
-          setValue(e.target.value)
-        }}
-        autoComplete="off"
-        type="text"
-        list="role-list"
-        value={value}
-      /> */}
-      <select onChange={(e)=> store.editRoleList(e.target.value,index)} defaultValue={role}>
+      <select onChange={(e)=> store.editRoleList(e.target.value,id)} defaultValue={title}>
         {roles.map((elem) => {
           return (
             <option key={elem} value={elem}>
@@ -42,7 +28,8 @@ const Select = observer(({role,index}:InputProps) => {
         })} 
       </select>
       <ButtonIcon handleClick={()=>{
-        store.deleteRoleList(role)
+        
+        store.deleteRoleList(id)
       }} image={minus} isAnimate={false} />
     </div>
   );

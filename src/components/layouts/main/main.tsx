@@ -9,8 +9,11 @@ interface MainProps {}
 const Main: FunctionComponent<MainProps> = () => {
   const nav = useNavigate()
   const Navigate = () => {
-    store.randomizeRoles()
-    nav("/game");
+    if (store.roleList.length>0) {
+      store.randomizeRoles()
+      nav("/game");
+      
+    }
   };
   return (
     <main className={styles.main}>

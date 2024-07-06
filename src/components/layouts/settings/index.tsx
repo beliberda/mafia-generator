@@ -8,6 +8,8 @@ import { observer } from "mobx-react-lite";
 import store from "@/components/store/store";
 import { FunctionComponent } from "react";
 import * as React from "react";
+import { toJS } from "mobx";
+import { getUnicId } from "@/components/utils/uniqId";
 interface SettingsProps {}
 
 const Settings: FunctionComponent<SettingsProps> = observer(() => {
@@ -24,18 +26,19 @@ return (
       }} />
       </div>
       {
-        store.roleList.map((role,i)=>{
+        store.roleList.map((role)=>{
 
           return (
-            <React.Fragment key={i}>
-              <Select index={i} role={role.title}/>
+            <React.Fragment key={role.id}>
+              <Select id={role.id} title={role.title}/>
             </React.Fragment>
           )
           
         })
       }
       <ButtonIcon handleClick={()=>{
-        store.addRoleList({title:"Мирный",
+                  const randId = getUnicId(toJS(store.roleList))
+        store.addRoleList({id:randId,title:"Мирный",
       img:"/public/cards/Мирный.png"})
       }} image={plus} isAnimate={false} />
     </div>

@@ -12,7 +12,11 @@
   transform: translate(-50%, -50%);
   left: 50%;
   border-radius: 15px;
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 .close_button {
-  align-self: flex-end;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }

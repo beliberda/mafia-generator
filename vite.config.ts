@@ -4,6 +4,16 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:'./',
+  build:{
+        rollupOptions: {
+      output: {
+        dir:'./build',
+        // entryFileNames: 'bundle.js',
+        // format: 'esm'
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

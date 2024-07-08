@@ -13,34 +13,40 @@ import { getUnicId } from "@/components/utils/uniqId";
 interface SettingsProps {}
 
 const Settings: FunctionComponent<SettingsProps> = observer(() => {
+  if (!store.isModalShown) {
+    return <></>;
+  }
 
-if (!store.isModalShown) {
-  return <></>
-}
-
-return (
+  return (
     <div className={styles.modal}>
       <div className={styles.close_button}>
-      <ButtonIcon image={close} isAnimate={true} handleClick={()=>{
-        store.setIsmodalShown()
-      }} />
+        <ButtonIcon
+          image={close}
+          isAnimate={true}
+          handleClick={() => {
+            store.setIsmodalShown();
+          }}
+        />
       </div>
-      {
-        store.roleList.map((role)=>{
-
-          return (
-            <React.Fragment key={role.id}>
-              <Select id={role.id} title={role.title}/>
-            </React.Fragment>
-          )
-          
-        })
-      }
-      <ButtonIcon handleClick={()=>{
-                  const randId = getUnicId(toJS(store.roleList))
-        store.addRoleList({id:randId,title:"Мирный",
-      img:"/public/cards/Мирный.png"})
-      }} image={plus} isAnimate={false} />
+      {store.roleList.map((role) => {
+        return (
+          <React.Fragment key={role.id}>
+            <Select id={role.id} title={role.title} />
+          </React.Fragment>
+        );
+      })}
+      <ButtonIcon
+        handleClick={() => {
+          const randId = getUnicId(toJS(store.roleList));
+          store.addRoleList({
+            id: randId,
+            title: "Мирный",
+            img: "./cards/Мирный.png",
+          });
+        }}
+        image={plus}
+        isAnimate={false}
+      />
     </div>
   );
 });

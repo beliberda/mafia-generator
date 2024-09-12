@@ -41,7 +41,7 @@ const Settings: FunctionComponent<SettingsProps> = observer(() => {
           store.addRoleList({
             id: randId,
             title: "Мирный",
-            img: "./cards/Мирный.png",
+            img: "./cards/Мирный.webp",
           });
         }}
         image={plus}

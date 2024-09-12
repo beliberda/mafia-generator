@@ -4,11 +4,11 @@ import { makeAutoObservable, toJS } from "mobx";
 class Store {
   isModalShown: boolean = false;
   roleList: Role[] = [
-    { id: 1, title: "Мафия", img: "./cards/Мафия.png" },
-    { id: 2, title: "Мирный", img: "./cards/Мирный.png" },
-    { id: 3, title: "Коммисар", img: "./cards/Коммисар.png" },
-    { id: 4, title: "Врач", img: "./cards/Врач.png" },
-    { id: 5, title: "Красотка", img: "./cards/Красотка.png" },
+    { id: 1, title: "Мафия", img: "./cards/Мафия.webp" },
+    { id: 2, title: "Мирный", img: "./cards/Мирный.webp" },
+    { id: 3, title: "Коммисар", img: "./cards/Коммисар.webp" },
+    { id: 4, title: "Врач", img: "./cards/Врач.webp" },
+    { id: 5, title: "Красотка", img: "./cards/Красотка.webp" },
   ];
   randomizeRoleList: Role[] = [];
   indexRole: number = 0;
@@ -34,7 +34,7 @@ class Store {
     this.roleList = this.roleList.filter((role) => role.id !== id);
   }
   editRoleList(value: string, id: number) {
-    let image = "./cards/" + value + ".png";
+    let image = "./cards/" + value + ".webp";
     this.roleList = this.roleList.map((role) =>
       role.id === id ? { ...role, img: image, title: value } : role
     );
